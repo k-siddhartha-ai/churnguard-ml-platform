@@ -1,0 +1,10 @@
+python==3.11
+pandas==2.2.3
+numpy==2.2.3
+scikit-learn==1.7.0
+matplotlib==3.10.1
+seaborn==0.13.2
+streamlit==1.52.2
+joblib==1.5.1
+shap==0.50.0
+openpyxl==3.1.5
