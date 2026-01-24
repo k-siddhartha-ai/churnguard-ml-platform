@@ -23,3 +23,11 @@ Thumbs.db
 artifacts/models/*.joblib
 artifacts/deep_learning/*.h5
 
+# =========================
+# ML Model Artifacts (DO NOT COMMIT)
+# =========================
+artifacts/models/
+artifacts/deep_learning/
+artifacts/nlp/
+*.joblib
+*.h5
