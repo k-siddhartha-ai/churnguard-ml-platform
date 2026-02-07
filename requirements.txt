@@ -1,8 +1,9 @@
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-joblib
 streamlit
-openpyxl
+pandas
+scikit-learn
+joblib
+requests
+pillow
+tensorflow==2.12
+transformers
+torch
