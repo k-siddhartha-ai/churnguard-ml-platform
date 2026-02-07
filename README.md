@@ -1,3 +1,15 @@
+---
+title: ChurnGuard ML Platform
+emoji: 📉
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: "1.32.2"
+app_file: app/app.py
+pinned: false
+---
+
+
 # ChurnGuard  
 ### Real-Time Customer Churn Prediction & Customer Intelligence Platform
 
@@ -135,16 +147,33 @@ The inference pipeline is built for **robust real-world usage**, handling unseen
 - **KMeans Clustering** – Customer segmentation  
 
 ---
+## 🤔 Why These Models?
 
-## 📈 Evaluation Metrics
+### Logistic Regression
+- Chosen as a highly interpretable baseline model
+- Enables direct business explanations via coefficients & odds ratios
+- Suitable for regulated or high-stakes decision systems
 
-- Accuracy  
-- Precision  
-- Recall  
-- F1-score  
-- ROC-AUC  
+### Random Forest
+- Captures non-linear customer behavior patterns
+- Handles feature interactions better than linear models
+- Improves churn recall compared to baseline models
 
-Metrics are chosen to handle **class imbalance**, a common churn scenario.
+### Why Not Deep Learning for Primary Inference?
+- Tabular churn data often favors tree-based models
+- Deep learning adds operational complexity with limited gain
+- Used here to demonstrate architecture knowledge, not default production choice
+
+---
+## 📈 Evaluation Metrics & Rationale
+
+- **Recall (Churn Class):** Prioritized to avoid missing at-risk customers
+- **ROC-AUC:** Measures ranking quality across thresholds
+- **F1-score:** Balances false positives and false negatives
+- **Precision:** Controls cost of unnecessary retention actions
+
+Metrics are chosen to reflect real business trade-offs,
+not just raw accuracy.
 
 ---
 
@@ -158,7 +187,29 @@ The application is deployed as a **Streamlit web app** with a FastAPI backend, s
 Users can upload customer data and receive **real-time churn predictions**.
 
 ---
+## ⚠️ Deployment Notes (Hugging Face)
 
+Some modules are intentionally limited on Hugging Face Spaces due to platform constraints:
+
+- **Single-customer prediction** uses a FastAPI microservice and is disabled here  
+- **Transformer-based sentiment analysis** may be unavailable due to tokenizer/runtime limits  
+- **Deep learning inference** is disabled to reflect real-world separation of training and inference  
+
+These modules are fully supported in **local or cloud deployments (Docker / Kubernetes)**.
+---
+
+## 🤖 Deep Learning Model (Design Demonstration)
+
+A neural network model was trained offline to explore deep learning approaches.
+
+### Why inference is disabled in the demo:
+- TensorFlow version mismatch between training and deployment environments
+- Common in real-world ML systems
+- Training and inference pipelines often run separately
+
+This design choice demonstrates deployment awareness and risk mitigation,
+not a system limitation.
+---
 ## 🛠 Tech Stack
 
 - **Programming:** Python  
@@ -202,6 +253,7 @@ churnguard/
 ├── requirements.txt  
 └── README.md  
 
+---
 🚀 Results & Business Impact
 
 Identifies high-risk churn customers before attrition
@@ -211,8 +263,18 @@ Enables targeted retention strategies
 Reduces potential revenue loss
 
 Demonstrates industry-grade ML system design, not just modeling
+---
 
+## 🧠 What This Project Demonstrates
 
+- End-to-end ML system design (not notebook modeling)
+- Data leakage prevention
+- Consistent preprocessing across training & inference
+- Model explainability and governance
+- Deployment-aware engineering decisions
+- Realistic handling of production constraints
+
+---
 📬 Contact
 
 If you find this project useful or would like to collaborate:
@@ -221,5 +283,6 @@ GitHub: https://github.com/k-siddhartha-ai
 
 LinkedIn: http://www.linkedin.com/in/karne-siddhartha-163bb1369
 
+---
 
 
