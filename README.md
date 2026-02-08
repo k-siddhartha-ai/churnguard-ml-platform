@@ -137,11 +137,9 @@ The training pipeline follows a reproducible workflow designed to prevent data l
 
 Designed for robust real-world usage and schema-safe predictions.
 
-### Steps
-
 1. Upload CSV or Excel files via Streamlit UI
 2. Automatic schema alignment with training features
-3. Missing categorical values filled safely
+3. Missing categorical values handled safely
 4. Missing numeric values defaulted to 0
 5. Prediction generation with probability scores
 6. Risk Segmentation:
