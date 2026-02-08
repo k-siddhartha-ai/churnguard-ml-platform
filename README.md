@@ -8,7 +8,7 @@ sdk: streamlit
 sdk_version: "1.32.2"
 app_file: app/app.py
 pinned: false
--------------
+---
 
 # 📉 ChurnGuard — Real-Time Customer Churn Intelligence Platform
 
